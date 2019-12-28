@@ -54,7 +54,7 @@ clojure.core/+
   (cond 
     (> x 0) (println "greater")
     (= x 0) (println "equal")
-    (< x 0) (println "lesser")))
+    :default (println "lesser")))
 ```
 
 ## functions
