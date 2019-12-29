@@ -130,3 +130,17 @@ Mutually recursive functions that can be called with `trampoline`:
 (filter (fn [n] (above-threshold? 5 n)) (range 1 10))
 (filter (partial above-threshold? 5) (range 1 10))
 ```
+
+`memoize`:
+
+```clojure
+(defn slow-calc [n m]
+  (Thread/sleep 1000)
+  (* n m))
+
+(time (slow-calc 5 7))
+
+(def fast-calc (memoize slow-calc))
+(time (fast-calc 5 7))
+(time (fast-calc 5 7))
+```

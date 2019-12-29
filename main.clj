@@ -1,18 +1,19 @@
 (println "hello world")
 
-(declare hat)
+(defn describe-salary [{first :first-name
+                         last :last-name
+                         annual :salary
+                         bonus :bonus-percentage
+                         :or {bonus 5}}]
+  (println first last "earns" annual "with a" bonus "percent-bonus"))
 
-(defn cat [n]
-  (if-not (zero? n)
-    (do
-      (if (= 0 (rem n 100))
-        (println "cat:" n))
-      (hat (dec n)))))
+(def a-user {:first-name "john"
+             :last-name "doe"
+             :salary 1000
+             :bonus-percentage 15})
+(describe-salary a-user)
 
-
-(defn hat [n]
-  (if-not (zero? n)
-    (do
-      (if (= 0 (rem n 100))
-        (println "hat:" n))
-      (cat (dec n)))))
+(def b-user {:first-name "john"
+             :last-name "doe"
+             :salary 1000})
+(describe-salary b-user)
