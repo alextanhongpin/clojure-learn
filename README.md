@@ -17,3 +17,10 @@ Run script:
 ```bash
 $ clojure main.clj
 ```
+
+
+Testing:
+```clojure
+(ns test.com
+  (:require [clojure.test :refer :all]))
+```
